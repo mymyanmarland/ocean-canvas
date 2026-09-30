@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="420" viewBox="0 0 1280 420">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#060b14"/>
+      <stop offset="1" stop-color="#0a1322"/>
+    </linearGradient>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <path id="wavePath" d="M0,0 q40,-25 80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 L2560,140 L0,140 Z"/>
+    <path id="spark" d="M0,-9 L2.2,-2.2 L9,0 L2.2,2.2 L0,9 L-2.2,2.2 L-9,0 L-2.2,-2.2 Z"/>
+  </defs>
+
+  <rect x="0" y="0" width="1280" height="420" fill="url(#bgGrad)"/>
+
+  <!-- light rays from top -->
+  <polygon points="300,-10 360,-10 310,430 250,430" fill="#ffffff" opacity="0.05">
+    <animate attributeName="opacity" values="0.02;0.07;0.02" dur="7s" repeatCount="indefinite"/>
+  </polygon>
+  <polygon points="620,-10 660,-10 640,430 600,430" fill="#ffffff" opacity="0.05">
+    <animate attributeName="opacity" values="0.06;0.02;0.06" dur="9s" begin="-2s" repeatCount="indefinite"/>
+  </polygon>
+  <polygon points="920,-10 990,-10 930,430 860,430" fill="#ffffff" opacity="0.05">
+    <animate attributeName="opacity" values="0.02;0.06;0.02" dur="8s" begin="-4s" repeatCount="indefinite"/>
+  </polygon>
+  <polygon points="90,-10 130,-10 110,430 70,430" fill="#ffffff" opacity="0.04">
+    <animate attributeName="opacity" values="0.05;0.02;0.05" dur="10s" begin="-6s" repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- twinkling sparkles -->
+  <use xlink:href="#spark" transform="translate(170,100)" fill="#edf3fb" opacity="0.8">
+    <animate attributeName="opacity" values="0.1;0.9;0.1" dur="3s" repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#spark" transform="translate(420,70)" fill="#e8d5a8" opacity="0.8">
+    <animate attributeName="opacity" values="0.9;0.1;0.9" dur="2.4s" begin="-1s" repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#spark" transform="translate(700,110)" fill="#edf3fb" opacity="0.8">
+    <animate attributeName="opacity" values="0.1;0.9;0.1" dur="3.6s" begin="-2s" repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#spark" transform="translate(950,80)" fill="#e8d5a8" opacity="0.8">
+    <animate attributeName="opacity" values="0.9;0.15;0.9" dur="2.8s" begin="-0.5s" repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#spark" transform="translate(1120,140)" fill="#edf3fb" opacity="0.8">
+    <animate attributeName="opacity" values="0.15;0.85;0.15" dur="3.2s" begin="-1.6s" repeatCount="indefinite"/>
+  </use>
+  <use xlink:href="#spark" transform="translate(60,180)" fill="#e8d5a8" opacity="0.8">
+    <animate attributeName="opacity" values="0.85;0.1;0.85" dur="2.6s" begin="-2.2s" repeatCount="indefinite"/>
+  </use>
+
+  <!-- drifting wave layers -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1280 0" dur="22s" repeatCount="indefinite"/>
+    <use xlink:href="#wavePath" x="0" y="336" fill="#6a8cff" opacity="0.08"/>
+  </g>
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="-1280 0" to="0 0" dur="16s" repeatCount="indefinite"/>
+    <use xlink:href="#wavePath" x="0" y="358" fill="#45c8f0" opacity="0.10"/>
+  </g>
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1280 0" dur="12s" repeatCount="indefinite"/>
+    <use xlink:href="#wavePath" x="0" y="380" fill="#e8d5a8" opacity="0.07"/>
+  </g>
+
+  <!-- rising bubbles -->
+  <circle cx="100" cy="440" r="5" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="11s" begin="-1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.15;0.8;1" dur="11s" begin="-1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="220" cy="440" r="8" fill="#edf3fb" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="13s" begin="-5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.15;0.8;1" dur="13s" begin="-5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="340" cy="440" r="4" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="8s" begin="-3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.15;0.8;1" dur="8s" begin="-3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="480" cy="440" r="7" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="12s" begin="-7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.15;0.8;1" dur="12s" begin="-7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="440" r="5" fill="#edf3fb" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="9s" begin="-2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.15;0.8;1" dur="9s" begin="-2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="730" cy="440" r="9" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="14s" begin="-9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.15;0.8;1" dur="14s" begin="-9s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="860" cy="440" r="4" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="7.5s" begin="-4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.15;0.8;1" dur="7.5s" begin="-4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="980" cy="440" r="6" fill="#edf3fb" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="10s" begin="-6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.15;0.8;1" dur="10s" begin="-6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1100" cy="440" r="8" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="12.5s" begin="-8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.15;0.8;1" dur="12.5s" begin="-8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1200" cy="440" r="5" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="440" to="-20" dur="9.5s" begin="-0.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.15;0.8;1" dur="9.5s" begin="-0.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- glowing title -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" keyTimes="0;0.5;1" dur="6s" repeatCount="indefinite"/>
+    <text x="640" y="180" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="84" fill="#45c8f0" opacity="0.85" filter="url(#softGlow)">OceanCanvas</text>
+    <text x="640" y="180" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="84" fill="#edf3fb">OceanCanvas</text>
+  </g>
+  <text x="640" y="242" text-anchor="middle" font-family="Georgia, serif" font-size="22" letter-spacing="8" fill="#45c8f0">AI IMAGE STUDIO &amp; PROMPT ATELIER</text>
+  <line x1="540" y1="272" x2="740" y2="272" stroke="#e8d5a8" stroke-width="2">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="2.8s" repeatCount="indefinite"/>
+  </line>
+</svg>

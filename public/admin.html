@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Admin · OceanCanvas 🔒</title>
+<link rel="stylesheet" href="style.css?v=9">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+</head>
+<body>
+<div class="aurora" aria-hidden="true">
+  <svg class="aurora-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <ellipse class="ab1" cx="180" cy="120" rx="300" ry="230">
+      <animate attributeName="rx" values="300;380;300" dur="16s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="230;290;230" dur="20s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse class="ab2" cx="1260" cy="780" rx="320" ry="250">
+      <animate attributeName="rx" values="320;250;320" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="780;690;780" dur="22s" repeatCount="indefinite"/>
+    </ellipse>
+  </svg>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="logoGradA" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#45c8f0"/><stop offset="1" stop-color="#6a8cff"/>
+        </linearGradient>
+        <clipPath id="logoClipA"><rect x="4" y="4" width="56" height="56" rx="18"/></clipPath>
+      </defs>
+      <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#logoGradA)"/>
+      <g clip-path="url(#logoClipA)">
+        <path class="lw1" d="M-12 42 C-2 34 8 34 18 40 C28 46 38 46 48 38 C58 30 68 32 78 40" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <path class="lw2" d="M-12 51 C-2 45 8 45 18 49 C28 53 38 53 48 47 C58 41 68 43 78 49" stroke="rgba(255,255,255,.55)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle class="lbub" cx="20" cy="18" r="3" fill="rgba(255,255,255,.75)"/>
+      </g>
+      <path class="lspark" d="M47 9 l2.2 6 6 2.2 -6 2.2 -2.2 6 -2.2 -6 -6 -2.2 6 -2.2z" fill="#ffffff"/>
+    </svg>
+    <span data-i18n="title">OceanCanvas</span>
+  </a>
+  <div class="top-actions">
+    <div class="lang-toggle">
+      <button id="langMy" class="active">မြန်မာ</button>
+      <button id="langEn">EN</button>
+    </div>
+    <a class="icon-btn" href="/" title="Studio">🖼️</a>
+  </div>
+</header>
+
+<main class="admin-wrap">
+  <!-- login -->
+  <section class="card login-card" id="loginCard">
+    <h1>🔒 <span data-i18n="adminTitle">Admin Panel</span></h1>
+    <p data-i18n="adminSub">API key ပြင်ဖို့ admin password ထည့်ပါ</p>
+    <div id="disabledWarn" class="warn hidden" data-i18n="adminDisabled">Admin password မသတ်မှတ်ရသေးပါ — server မှာ ADMIN_PASSWORD ထည့်ဖို့ လိုပါတယ်</div>
+    <input id="pw" type="password" data-i18n-ph="pwPh" placeholder="Admin password">
+    <button id="loginBtn" class="gen-btn" style="width:100%"><span data-i18n="login">ဝင်ရန်</span></button>
+    <div id="loginStatus" class="status"></div>
+  </section>
+
+  <!-- dashboard -->
+  <div id="dash" class="hidden" style="display:flex;flex-direction:column;gap:14px">
+    <section class="card">
+      <div class="gal-head">
+        <h2>📊 <span data-i18n="stats">အခြေအနေ</span></h2>
+        <button id="logoutBtn" class="btn ghost" style="font-size:13px">🚪 <span data-i18n="logout">ထွက်ရန်</span></button>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><div class="v" id="stTotal">–</div><div class="k" data-i18n="stTotal">စုစုပေါင်း ပုံများ</div></div>
+        <div class="stat"><div class="v" id="stToday">–</div><div class="k" data-i18n="stToday">ဒီနေ့</div></div>
+        <div class="stat"><div class="v" id="stSize">–</div><div class="k" data-i18n="stSize">Gallery အရွယ်အစား</div></div>
+        <div class="stat"><div class="v" id="stRate">–</div><div class="k" data-i18n="stRate">Rate limit / နာရီ</div></div>
+      </div>
+    </section>
+
+    <section class="card" id="relayCard1">
+      <h2 style="margin-top:0">🔑 <span>Relay 1 · Grok</span></h2>
+      <label class="lbl" data-i18n="curKey">လက်ရှိ key</label>
+      <div class="key-masked" id="keyMasked1">••••••••</div>
+      <label class="lbl" data-i18n="baseUrl">Relay Base URL</label>
+      <input id="setBase1" type="text" placeholder="https://sapi.zly168.cn/v1">
+      <div id="baseWarn1" class="warn hidden" data-i18n="baseNotApproved"></div>
+      <label class="lbl" data-i18n="newKey">Key အသစ် (ပြောင်းချင်မှ ထည့်ပါ)</label>
+      <input id="setKey1" type="password" placeholder="sk-..." autocomplete="new-password">
+    </section>
+
+    <section class="card" id="relayCard2">
+      <h2 style="margin-top:0">🔑 <span>Relay 2 · RelayModels</span></h2>
+      <label class="lbl" data-i18n="curKey">လက်ရှိ key</label>
+      <div class="key-masked" id="keyMasked2">••••••••</div>
+      <label class="lbl" data-i18n="baseUrl">Relay Base URL</label>
+      <input id="setBase2" type="text" placeholder="https://api.relaymodels.com/v1">
+      <div id="baseWarn2" class="warn hidden" data-i18n="baseNotApproved"></div>
+      <label class="lbl" data-i18n="newKey">Key အသစ် (ပြောင်းချင်မှ ထည့်ပါ)</label>
+      <input id="setKey2" type="password" placeholder="sk-..." autocomplete="new-password">
+      <div class="modal-row">
+        <button id="saveKey" class="btn primary"><span data-i18n="save">သိမ်းရန်</span></button>
+        <button id="testConn" class="btn"><span data-i18n="test">စမ်းသပ်ရန်</span></button>
+      </div>
+      <div id="keyStatus" class="status"></div>
+      <p class="fine" data-i18n="keyNote">Key ကို server မှာ AES-256-GCM နဲ့ လျှို့ဝှက်သိမ်းပါတယ်။ Browser ကို key အပြည့်အစုံ ဘယ်တော့မှ မပို့ပါ။</p>
+    </section>
+
+    <section class="card danger-zone">
+      <h3>⚠️ <span data-i18n="danger">အန္တရာယ်ဇုန်</span></h3>
+      <p class="fine" data-i18n="clearNote">Gallery ထဲက ပုံအားလုံးကို အပြီးဖျက်ပါမယ်။</p>
+      <button id="clearGal" class="btn danger"><span data-i18n="clearGal">🗑️ Gallery အကုန်ဖျက်ရန်</span></button>
+      <div id="clearStatus" class="status"></div>
+    </section>
+  </div>
+</main>
+
+<script src="admin.js?v=7"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Runtime data (SQLite, generated images) — never commit.
+# OceanCanvas stores NOTHING on the server by design; this dir stays local.
+data/
+
+# Environment & secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

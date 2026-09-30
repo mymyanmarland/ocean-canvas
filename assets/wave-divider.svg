@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="110" viewBox="0 0 1280 110">
+  <defs>
+    <path id="wvLine" d="M0,55 q40,-30 80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0"/>
+    <path id="wvFill" d="M0,55 q40,-30 80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 t80,0 L2560,110 L0,110 Z"/>
+  </defs>
+
+  <!-- back wave: filled translucent aqua, drifts left -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="0 0" to="-1280 0" dur="11s" repeatCount="indefinite"/>
+    <use xlink:href="#wvFill" fill="#45c8f0" opacity="0.12"/>
+  </g>
+
+  <!-- front wave: aqua stroke, drifts right -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" from="-1280 0" to="0 0" dur="8s" repeatCount="indefinite"/>
+    <use xlink:href="#wvLine" y="-16" fill="none" stroke="#45c8f0" stroke-width="3" opacity="0.85"/>
+    <use xlink:href="#wvLine" y="14" fill="none" stroke="#6a8cff" stroke-width="2" opacity="0.55"/>
+  </g>
+</svg>

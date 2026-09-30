@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>OceanCanvas 🌊 — စိတ်ကူးသမုဒ္ဒရာ</title>
+<link rel="stylesheet" href="style.css?v=21">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+</head>
+<body>
+<div class="aurora" aria-hidden="true">
+  <svg class="aurora-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <ellipse class="ab1" cx="180" cy="120" rx="300" ry="230">
+      <animate attributeName="rx" values="300;380;300" dur="16s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="230;290;230" dur="20s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="180;270;180" dur="24s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse class="ab2" cx="1260" cy="780" rx="320" ry="250">
+      <animate attributeName="rx" values="320;250;320" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="780;690;780" dur="22s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse class="ab3" cx="900" cy="450" rx="240" ry="200">
+      <animate attributeName="ry" values="200;260;200" dur="15s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="900;810;900" dur="26s" repeatCount="indefinite"/>
+    </ellipse>
+  </svg>
+</div>
+
+<!-- Ambient ocean side decorations (wide screens only) -->
+<aside class="side-decor left" aria-hidden="true">
+  <svg viewBox="0 0 200 620" class="sd-svg">
+    <defs>
+      <linearGradient id="rayG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#bfe9ff" stop-opacity=".5"/><stop offset="1" stop-color="#bfe9ff" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="jellyG" cx=".5" cy=".35" r=".8">
+        <stop offset="0" stop-color="#a8c8ff" stop-opacity=".85"/><stop offset="1" stop-color="#6a8cff" stop-opacity=".25"/>
+      </radialGradient>
+    </defs>
+    <g class="sd-rays">
+      <polygon points="40,-10 80,-10 40,620 0,620" fill="url(#rayG)"/>
+      <polygon points="110,-10 135,-10 105,620 80,620" fill="url(#rayG)" opacity=".7"/>
+    </g>
+    <g class="sd-jelly">
+      <path d="M62 218 C62 168 80 146 100 146 C120 146 138 168 138 218 C128 231 118 223 109 227 C100 231 91 223 82 227 C73 231 68 227 62 218 Z" fill="url(#jellyG)"/>
+      <ellipse cx="100" cy="185" rx="26" ry="18" fill="#ffffff" opacity=".14"/>
+      <g stroke="#45c8f0" stroke-width="3" stroke-linecap="round" fill="none" opacity=".55">
+        <path class="sd-tent" style="animation-delay:0s" d="M78 226 q-6 28 2 56"/>
+        <path class="sd-tent" style="animation-delay:.7s" d="M90 228 q-2 32 5 62"/>
+        <path class="sd-tent" style="animation-delay:1.3s" d="M102 228 q3 30 -2 60"/>
+        <path class="sd-tent" style="animation-delay:.4s" d="M114 226 q7 28 1 54"/>
+        <path class="sd-tent" style="animation-delay:1s" d="M124 222 q8 24 4 46"/>
+      </g>
+      <circle cx="90" cy="190" r="2.4" fill="#eaf6ff" opacity=".8"/>
+      <circle cx="112" cy="196" r="1.8" fill="#eaf6ff" opacity=".7"/>
+    </g>
+    <g fill="rgba(69,200,240,.10)" stroke="rgba(69,200,240,.55)" stroke-width="1.5">
+      <circle class="sd-bub" style="animation-duration:9s;animation-delay:-2s" cx="30" cy="590" r="7"/>
+      <circle class="sd-bub" style="animation-duration:11s;animation-delay:-6s" cx="165" cy="600" r="5"/>
+      <circle class="sd-bub" style="animation-duration:8s;animation-delay:-4s" cx="150" cy="580" r="8.5"/>
+      <circle class="sd-bub" style="animation-duration:12s;animation-delay:-9s" cx="55" cy="600" r="4"/>
+      <circle class="sd-bub" style="animation-duration:10s;animation-delay:-1s" cx="100" cy="595" r="6"/>
+      <circle class="sd-bub" style="animation-duration:13s;animation-delay:-7s" cx="185" cy="590" r="4.5"/>
+    </g>
+    <g fill="#e8d5a8">
+      <g transform="translate(45,120)"><path class="sd-twk" style="animation-delay:0s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2 Z"/></g>
+      <g transform="translate(160,300)"><path class="sd-twk" style="animation-delay:1.4s" d="M0 -6 L1.7 -1.7 L6 0 L1.7 1.7 L0 6 L-1.7 1.7 L-6 0 L-1.7 -1.7 Z"/></g>
+      <g transform="translate(70,430)"><path class="sd-twk" style="animation-delay:2.6s" d="M0 -5 L1.4 -1.4 L5 0 L1.4 1.4 L0 5 L-1.4 1.4 L-5 0 L-1.4 -1.4 Z"/></g>
+      <g transform="translate(140,80)"><path class="sd-twk" style="animation-delay:.8s" d="M0 -5 L1.4 -1.4 L5 0 L1.4 1.4 L0 5 L-1.4 1.4 L-5 0 L-1.4 -1.4 Z"/></g>
+    </g>
+  </svg>
+</aside>
+<aside class="side-decor right" aria-hidden="true">
+  <svg viewBox="0 0 200 620" class="sd-svg">
+    <defs>
+      <radialGradient id="glowG" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#45c8f0" stop-opacity=".30"/><stop offset="1" stop-color="#45c8f0" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <ellipse class="sd-glow" cx="100" cy="560" rx="95" ry="60" fill="url(#glowG)"/>
+    <g class="sd-fishwrap">
+      <g class="sd-fish" style="animation-duration:26s;animation-delay:-4s"><g transform="translate(0,90)"><g class="sd-bob" style="animation-delay:-1s">
+        <ellipse rx="15" ry="8.5" fill="rgba(69,200,240,.55)"/><polygon points="-14,0 -26,-8 -26,8" fill="rgba(69,200,240,.55)"/><circle cx="7" cy="-2.5" r="1.8" fill="#060b14"/>
+      </g></g></g>
+      <g class="sd-fish" style="animation-duration:32s;animation-delay:-18s"><g transform="translate(0,180) scale(.7)"><g class="sd-bob" style="animation-delay:-2.4s">
+        <ellipse rx="15" ry="8.5" fill="rgba(106,140,255,.55)"/><polygon points="-14,0 -26,-8 -26,8" fill="rgba(106,140,255,.55)"/><circle cx="7" cy="-2.5" r="1.8" fill="#060b14"/>
+      </g></g></g>
+      <g class="sd-fish" style="animation-duration:22s;animation-delay:-11s"><g transform="translate(0,270) scale(1.15)"><g class="sd-bob" style="animation-delay:-.6s">
+        <ellipse rx="15" ry="8.5" fill="rgba(232,213,168,.5)"/><polygon points="-14,0 -26,-8 -26,8" fill="rgba(232,213,168,.5)"/><circle cx="7" cy="-2.5" r="1.8" fill="#060b14"/>
+      </g></g></g>
+      <g class="sd-fish" style="animation-duration:30s;animation-delay:-24s"><g transform="translate(0,360) scale(.85)"><g class="sd-bob" style="animation-delay:-3.1s">
+        <ellipse rx="15" ry="8.5" fill="rgba(69,200,240,.45)"/><polygon points="-14,0 -26,-8 -26,8" fill="rgba(69,200,240,.45)"/><circle cx="7" cy="-2.5" r="1.8" fill="#060b14"/>
+      </g></g></g>
+      <g class="sd-fish" style="animation-duration:24s;animation-delay:-8s"><g transform="translate(0,450) scale(.6)"><g class="sd-bob" style="animation-delay:-1.8s">
+        <ellipse rx="15" ry="8.5" fill="rgba(106,140,255,.5)"/><polygon points="-14,0 -26,-8 -26,8" fill="rgba(106,140,255,.5)"/><circle cx="7" cy="-2.5" r="1.8" fill="#060b14"/>
+      </g></g></g>
+    </g>
+    <g fill="rgba(69,200,240,.10)" stroke="rgba(69,200,240,.55)" stroke-width="1.5">
+      <circle class="sd-bub" style="animation-duration:10s;animation-delay:-3s" cx="170" cy="595" r="6"/>
+      <circle class="sd-bub" style="animation-duration:12s;animation-delay:-8s" cx="35" cy="600" r="8"/>
+      <circle class="sd-bub" style="animation-duration:9s;animation-delay:-5s" cx="90" cy="590" r="4.5"/>
+      <circle class="sd-bub" style="animation-duration:14s;animation-delay:-1s" cx="140" cy="600" r="5.5"/>
+    </g>
+    <g fill="#e8d5a8">
+      <g transform="translate(150,140)"><path class="sd-twk" style="animation-delay:.5s" d="M0 -7 L2 -2 L7 0 L2 2 L0 7 L-2 2 L-7 0 L-2 -2 Z"/></g>
+      <g transform="translate(40,250)"><path class="sd-twk" style="animation-delay:2s" d="M0 -6 L1.7 -1.7 L6 0 L1.7 1.7 L0 6 L-1.7 1.7 L-6 0 L-1.7 -1.7 Z"/></g>
+      <g transform="translate(120,500)"><path class="sd-twk" style="animation-delay:1.1s" d="M0 -5 L1.4 -1.4 L5 0 L1.4 1.4 L0 5 L-1.4 1.4 L-5 0 L-1.4 -1.4 Z"/></g>
+      <g transform="translate(60,60)"><path class="sd-twk" style="animation-delay:3s" d="M0 -5 L1.4 -1.4 L5 0 L1.4 1.4 L0 5 L-1.4 1.4 L-5 0 L-1.4 -1.4 Z"/></g>
+    </g>
+  </svg>
+</aside>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#45c8f0"/><stop offset="1" stop-color="#6a8cff"/>
+        </linearGradient>
+        <clipPath id="logoClip"><rect x="4" y="4" width="56" height="56" rx="18"/></clipPath>
+      </defs>
+      <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#logoGrad)"/>
+      <g clip-path="url(#logoClip)">
+        <path class="lw1" d="M-12 42 C-2 34 8 34 18 40 C28 46 38 46 48 38 C58 30 68 32 78 40" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <path class="lw2" d="M-12 51 C-2 45 8 45 18 49 C28 53 38 53 48 47 C58 41 68 43 78 49" stroke="rgba(255,255,255,.55)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle class="lbub" cx="20" cy="18" r="3" fill="rgba(255,255,255,.75)"/>
+        <circle class="lbub b2" cx="28" cy="26" r="2" fill="rgba(255,255,255,.5)"/>
+      </g>
+      <path class="lspark" d="M47 9 l2.2 6 6 2.2 -6 2.2 -2.2 6 -2.2 -6 -6 -2.2 6 -2.2z" fill="#ffffff"/>
+    </svg>
+    <span data-i18n="title">OceanCanvas</span>
+  </a>
+  <div class="top-actions">
+    <button id="soundBtn" class="icon-btn" title="ရေသံ အဖွင့်/အပိတ်">🔊</button>
+    <button id="keyBtn" class="icon-btn" title="API Key">🔑</button>
+    <div class="lang-toggle">
+      <button id="langMy" class="active">မြန်မာ</button>
+      <button id="langEn">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <svg class="hero-svg" viewBox="0 0 400 110" aria-hidden="true">
+      <defs>
+        <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#45c8f0"/><stop offset="1" stop-color="#6a8cff"/>
+        </linearGradient>
+      </defs>
+      <path class="morph m1" d="M60 20 C90 10 120 30 110 60 C100 88 60 92 40 70 C22 50 35 28 60 20 Z">
+        <animate attributeName="d" values="M60 20 C90 10 120 30 110 60 C100 88 60 92 40 70 C22 50 35 28 60 20 Z;M65 28 C95 22 118 44 104 68 C92 90 55 88 38 64 C24 44 40 30 65 28 Z;M60 20 C90 10 120 30 110 60 C100 88 60 92 40 70 C22 50 35 28 60 20 Z" dur="11s" repeatCount="indefinite"/>
+      </path>
+      <path class="morph m2" d="M330 30 C355 22 375 40 368 62 C360 84 330 86 316 68 C304 52 312 36 330 30 Z">
+        <animate attributeName="d" values="M330 30 C355 22 375 40 368 62 C360 84 330 86 316 68 C304 52 312 36 330 30 Z;M336 38 C358 34 372 50 362 68 C352 86 326 82 314 62 C304 46 316 40 336 38 Z;M330 30 C355 22 375 40 368 62 C360 84 330 86 316 68 C304 52 312 36 330 30 Z" dur="13s" repeatCount="indefinite"/>
+      </path>
+      <circle class="drift d1" cx="70" cy="55" r="20"/>
+      <circle class="drift d2" cx="330" cy="45" r="13"/>
+      <circle class="drift d3" cx="252" cy="82" r="8"/>
+      <path class="stroke-draw" d="M118 94 C170 78 232 78 288 92"/>
+      <g class="shoot s1"><line x1="305" y1="4" x2="335" y2="18"/></g>
+      <g class="shoot s2"><line x1="125" y1="2" x2="155" y2="16"/></g>
+      <path class="tw t1" d="M150 22 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5z"/>
+      <path class="tw t2" d="M302 82 l2 5.5 5.5 2 -5.5 2 -2 5.5 -2 -5.5 -5.5 -2 5.5 -2z"/>
+      <path class="tw t3" d="M112 84 l1.8 5 5 1.8 -5 1.8 -1.8 5 -1.8 -5 -5 -1.8 5 -1.8z"/>
+      <path class="tw t4" d="M212 66 l2.2 6 6 2.2 -6 2.2 -2.2 6 -2.2 -6 -6 -2.2 6 -2.2z"/>
+      <path class="tw t5" d="M255 18 l1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z"/>
+      <path class="tw t6" d="M40 88 l1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z"/>
+      <path class="tw t7" d="M360 60 l1.4 3.8 3.8 1.4 -3.8 1.4 -1.4 3.8 -1.4 -3.8 -3.8 -1.4 3.8 -1.4z"/>
+    </svg>
+    <h1><span data-i18n="heroA">စိတ်ကူးကို</span> <em data-i18n="heroB">ပုံအဖြစ်</em> <span data-i18n="heroC">ဖန်တီးလိုက်ပါ</span></h1>
+    <p data-i18n="heroSub">AI ပုံထုတ်စက် — Grok Imagine မော်ဒယ်များနဲ့ အရည်အသွေးမြင့် ပုံတွေ စက္ကန့်ပိုင်းအတွင်း</p>
+  </section>
+
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="w1" d="M0,52 C240,92 480,12 720,52 C960,92 1200,12 1440,52 L1440,100 L0,100 Z"/>
+      <path class="w2" d="M0,62 C240,22 480,102 720,62 C960,22 1200,102 1440,62 L1440,100 L0,100 Z"/>
+    </svg>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button id="tabImage" class="tab sel"><span class="gen-wrap"><span class="gen-label"><span data-i18n="tabImage">ပုံထုတ်ရန်</span></span></span></button>
+    <button id="tabPrompt" class="tab"><span class="gen-wrap"><span class="gen-label"><span data-i18n="tabPrompt">Prompt ဖန်တီးရန်</span></span></span></button>
+  </div>
+
+  <section class="card studio" id="paneImage">
+    <div class="prompt-head">
+      <label class="lbl" data-i18n="promptLabel">✏️ ပုံဖော်ပြချက် (Prompt)</label>
+      <span class="char-count"><span id="charCount">0</span>/2000</span>
+    </div>
+    <div class="input-container"><textarea id="prompt" class="neo-input" rows="3" data-i18n-ph="promptPh" placeholder="ဥပမာ — လရောင်အောက်က ရွှေတိဂုံစေတီ, cinematic lighting"></textarea></div>
+    <div class="chips" id="exampleChips"></div>
+
+    <div class="model-badge"><span class="badge">GPT</span><b>gpt-image-2</b><span class="mb-desc" data-i18n="modelBadgeDesc">OpenAI GPT Image 2</span></div>
+
+    <label class="lbl" data-i18n="aspectLabel">📐 အချိုးအစား</label>
+    <div class="aspect-grid" id="aspectGrid"></div>
+
+    <label class="lbl" data-i18n="styleLabel">🎭 စတိုင်</label>
+    <div class="chips style-chips" id="styleChips"></div>
+
+    <div class="gen-row">
+      <div class="count-ctl">
+        <label data-i18n="countLabel">ပုံအရေအတွက်</label>
+        <div class="stepper">
+          <button id="countMinus" aria-label="−">−</button>
+          <span id="countVal">1</span>
+          <button id="countPlus" aria-label="+">+</button>
+        </div>
+      </div>
+      <button id="generateBtn" class="gen-btn"><span class="gen-wrap"><span class="gen-label">✨ <span data-i18n="generate">ပုံထုတ်ရန်</span></span></span></button>
+    </div>
+    <p class="public-note" data-i18n="publicNote">🔑 ကိုယ့် RelayModels API key ထည့်ပြီးမှ သုံးနိုင်ပါတယ်</p>
+  </section>
+
+  <section class="card studio hidden" id="panePrompt">
+    <div class="prompt-head">
+      <label class="lbl" data-i18n="pgIdeaLabel">💡 စိတ်ကူး</label>
+    </div>
+    <div class="input-container"><textarea id="pgIdea" class="neo-input" rows="3" data-i18n-ph="pgIdeaPh" placeholder="ဥပမာ — ရွှေတိဂုံစေတီ နေဝင်ချိန်, မီးပုံးပျံတွေ…"></textarea></div>
+
+    <label class="lbl" data-i18n="pgCatLabel">🗂️ အမျိုးအစား</label>
+    <div class="chips" id="pgCats"></div>
+
+    <label class="lbl" data-i18n="pgModelLabel">🤖 AI Model</label>
+    <select id="pgModel" class="pg-select" aria-label="AI model">
+      <option data-i18n="pgModelsLoading">Model စာရင်း ရယူနေတယ်…</option>
+    </select>
+
+    <div class="pg-opt-grid">
+      <div>
+        <label class="lbl" data-i18n="pgLenLabel">📏 Prompt အရှည်</label>
+        <div class="chips" id="pgLenChips"></div>
+      </div>
+      <div>
+        <label class="lbl" data-i18n="pgVarLabel">🔢 ရွေးချယ်စရာ</label>
+        <div class="stepper">
+          <button id="pgVarMinus" aria-label="−">−</button>
+          <span id="pgVarVal">1</span>
+          <button id="pgVarPlus" aria-label="+">+</button>
+        </div>
+      </div>
+      <div>
+        <label class="lbl" data-i18n="pgLangLabel">🗣️ ဘာသာစကား</label>
+        <div class="chips" id="pgLangChips"></div>
+        <p class="pg-hint hidden" id="pgLangHint" data-i18n="pgLangHint">💡 မြန်မာလို အကောင်းဆုံးရဖို့ claude-sonnet-5 လို model ကြီးရွေးပါ</p>
+      </div>
+    </div>
+
+    <div class="gen-row single">
+      <button id="pgGenBtn" class="gen-btn"><span class="gen-wrap"><span class="gen-label">✨ <span data-i18n="pgGenerate">Prompt ထုတ်ရန်</span></span></span></button>
+    </div>
+
+    <div class="pg-empty" id="pgEmpty">
+      <svg class="empty-svg small" viewBox="0 0 120 100" aria-hidden="true">
+        <rect class="frame" x="8" y="8" width="104" height="84" rx="14"/>
+        <path class="tw" d="M60 30 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/>
+        <path class="tw tt2" d="M34 58 l2 5.5 5.5 2 -5.5 2 -2 5.5 -2 -5.5 -5.5 -2 5.5 -2z"/>
+        <path class="tw" d="M86 60 l1.8 5 5 1.8 -5 1.8 -1.8 5 -1.8 -5 -5 -1.8 5 -1.8z"/>
+      </svg>
+      <p data-i18n="pgEmpty">စိတ်ကူးရေးပြီး ✨ နှိပ်လိုက်ပါ — AI က Prompt အလှလေး ရေးပေးမယ်</p>
+    </div>
+
+    <div class="pg-loading hidden" id="pgLoading">
+      <div class="pg-loader" aria-hidden="true">
+        <svg viewBox="0 0 64 64" class="pg-ring-svg">
+          <defs>
+            <linearGradient id="pgg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#45c8f0"/><stop offset="1" stop-color="#6a8cff"/>
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="6"/>
+          <circle class="pg-arc" cx="32" cy="32" r="26" fill="none" stroke="url(#pgg)" stroke-width="6" stroke-linecap="round" stroke-dasharray="42 122"/>
+          <g class="pg-orb-g"><circle cx="32" cy="6" r="4.5" fill="#e8d5a8"/></g>
+        </svg>
+        <span class="pg-core">✨</span>
+      </div>
+      <div class="pg-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p id="pgLoadingText" class="loader-text">…</p>
+    </div>
+
+    <div class="pg-results hidden" id="pgResults">
+      <label class="lbl" data-i18n="pgResultLabel">✨ ရလာတဲ့ Prompt များ</label>
+      <div id="pgResultsList"></div>
+    </div>
+    <div class="result-error hidden" id="pgError"></div>
+
+    <div class="pg-recent hidden" id="pgRecent">
+      <label class="lbl" data-i18n="pgRecent">🕘 နောက်ဆုံးထုတ်ထားတာများ</label>
+      <div id="pgRecentList"></div>
+    </div>
+  </section>
+
+  <div class="wave flip soft" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="w1" d="M0,52 C240,92 480,12 720,52 C960,92 1200,12 1440,52 L1440,100 L0,100 Z"/>
+      <path class="w2" d="M0,62 C240,22 480,102 720,62 C960,22 1200,102 1440,62 L1440,100 L0,100 Z"/>
+    </svg>
+  </div>
+
+  <section class="card results" id="resultCard">
+    <div class="result-empty" id="resultEmpty">
+      <svg class="empty-svg" viewBox="0 0 120 100" aria-hidden="true">
+        <rect class="frame" x="8" y="8" width="104" height="84" rx="14"/>
+        <circle class="sun" cx="82" cy="54" r="11"/>
+        <path class="mtn" d="M8 78 L45 44 L68 68 L84 54 L112 78 L112 92 L8 92 Z"/>
+        <path class="tw" d="M30 24 l2 5.5 5.5 2 -5.5 2 -2 5.5 -2 -5.5 -5.5 -2 5.5 -2z"/>
+        <path class="tw tt2" d="M56 20 l1.6 4.4 4.4 1.6 -4.4 1.6 -1.6 4.4 -1.6 -4.4 -4.4 -1.6 4.4 -1.6z"/>
+      </svg>
+      <p data-i18n="emptyHint">Prompt ရေးပြီး ✨ နှိပ်လိုက်ပါ — ပုံတွေ ဒီမှာ ပေါ်လာမယ်</p>
+    </div>
+    <div class="result-loading hidden" id="resultLoading">
+      <div class="loader-frame ar-square" id="loaderFrame">
+        <div class="loader-center">
+          <svg class="loader-ring" viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#45c8f0"/><stop offset="1" stop-color="#6a8cff"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="8"/>
+            <circle class="ring-spin" cx="60" cy="60" r="52" fill="none" stroke="url(#lg)" stroke-width="8" stroke-linecap="round" stroke-dasharray="82 245"/>
+            <circle class="ring-rev" cx="60" cy="60" r="40" fill="none" stroke="rgba(232,213,168,.55)" stroke-width="3" stroke-dasharray="6 14"/>
+            <g class="orbit"><circle cx="60" cy="8" r="5.5" fill="#e8d5a8"/></g>
+          </svg>
+          <div class="loader-emoji">✨</div>
+        </div>
+        <span class="particle p1">✦</span><span class="particle p2">✦</span><span class="particle p3">✧</span>
+        <div class="lw-wrap" aria-hidden="true">
+          <svg viewBox="0 0 600 80" preserveAspectRatio="none">
+            <path class="lwv-a" d="M0 42 Q75 14 150 42 T300 42 T450 42 T600 42 V80 H0 Z"/>
+            <path class="lwv-b" d="M0 52 Q75 32 150 52 T300 52 T450 52 T600 52 V80 H0 Z"/>
+          </svg>
+        </div>
+      </div>
+      <p id="loadingText" class="loader-text">…</p>
+      <p id="loadingSub" class="loader-sub"></p>
+    </div>
+    <div class="result-grid hidden" id="resultGrid"></div>
+    <div class="result-error hidden" id="resultError"></div>
+  </section>
+
+  <div class="wave soft" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path class="w1" d="M0,52 C240,92 480,12 720,52 C960,92 1200,12 1440,52 L1440,100 L0,100 Z"/>
+      <path class="w2" d="M0,62 C240,22 480,102 720,62 C960,22 1200,102 1440,62 L1440,100 L0,100 Z"/>
+    </svg>
+  </div>
+
+  <footer class="foot" data-i18n="foot">OceanCanvas 🌊 · ပုံတွေကို server မှာ လုံးဝ မသိမ်းပါ</footer>
+</main>
+
+<div class="modal hidden" id="lightbox">
+  <div class="modal-box wide">
+    <img id="lbImg" alt="">
+    <p class="lb-prompt" id="lbPrompt"></p>
+    <p class="lb-meta" id="lbMeta"></p>
+    <div class="modal-row">
+      <a id="lbDownload" class="btn" download><span data-i18n="download">⬇️ သိမ်းရန်</span></a>
+      <button id="lbDelete" class="btn danger hidden">🗑️ <span data-i18n="delete">ဖျက်ရန်</span></button>
+      <button id="lbClose" class="btn ghost"><span data-i18n="close">ပိတ်ရန်</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="modal hidden" id="keyModal">
+  <div class="modal-box">
+    <h3 class="modal-title">🔑 <span data-i18n="keyTitle">API Key</span></h3>
+    <p class="modal-desc" data-i18n="keyDesc">Prompt ထုတ်တာ + ပုံထုတ်တာ သုံးဖို့ ကိုယ့် RelayModels API key ထည့်ပါ</p>
+    <input id="keyInput" type="password" class="key-input" data-i18n-ph="keyPh" placeholder="sk-..." autocomplete="off" spellcheck="false">
+    <div class="result-error hidden" id="keyError"></div>
+    <div class="modal-row">
+      <button id="keySave" class="btn primary">💾 <span data-i18n="keySave">သိမ်းပြီး သုံးရန်</span></button>
+      <button id="keyRemove" class="btn danger hidden">🗑️ <span data-i18n="keyRemove">Key ဖျက်ရန်</span></button>
+      <button id="keyClose" class="btn ghost">✕</button>
+    </div>
+    <p class="pg-hint"><span data-i18n="keyWhere">Key ရယူရန်:</span> <a href="https://relaymodels.com" target="_blank" rel="noopener">relaymodels.com</a></p>
+    <p class="pg-hint" data-i18n="keyNote">🔒 Key ကို သင့် browser ထဲမှာပဲ သိမ်းထားပါတယ် — server မှာ မသိမ်းပါ</p>
+  </div>
+</div>
+
+<script src="app.js?v=18"></script>
+</body>
+</html>

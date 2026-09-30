@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="800" viewBox="0 0 1280 800">
+  <defs>
+    <linearGradient id="tabGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#45c8f0"/>
+      <stop offset="1" stop-color="#6a8cff"/>
+    </linearGradient>
+    <linearGradient id="genGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#45c8f0"/>
+      <stop offset="1" stop-color="#6a8cff"/>
+    </linearGradient>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ee2f5"/>
+      <stop offset="1" stop-color="#45c8f0"/>
+    </linearGradient>
+    <clipPath id="resClip">
+      <rect x="200" y="490" width="880" height="200" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <!-- window -->
+  <rect x="140" y="60" width="1000" height="680" rx="24" fill="#0d1626" stroke="#1c2f4d" stroke-width="2"/>
+  <line x1="140" y1="118" x2="1140" y2="118" stroke="#1c2f4d" stroke-width="1.5"/>
+  <circle cx="178" cy="92" r="9" fill="#ff5f57"/>
+  <circle cx="206" cy="92" r="9" fill="#febc2e"/>
+  <circle cx="234" cy="92" r="9" fill="#28c840"/>
+
+  <!-- header -->
+  <circle cx="200" cy="170" r="26" fill="none" stroke="#45c8f0" stroke-width="2" opacity="0.35">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="170" r="18" fill="url(#logoGrad)"/>
+  <text x="236" y="180" font-family="Georgia, serif" font-size="30" fill="#edf3fb">OceanCanvas</text>
+
+  <!-- tabs -->
+  <rect x="200" y="215" width="150" height="46" rx="23" fill="url(#tabGrad)"/>
+  <text x="275" y="245" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="18" font-weight="bold" fill="#060b14">IMAGE</text>
+  <rect x="364" y="215" width="150" height="46" rx="23" fill="#101c30" stroke="#1c2f4d" stroke-width="1.5"/>
+  <text x="439" y="245" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="18" font-weight="bold" fill="#8fa3bd">PROMPT</text>
+
+  <!-- prompt box -->
+  <rect x="200" y="285" width="880" height="92" rx="14" fill="#0a1322" stroke="#1c2f4d" stroke-width="1.5"/>
+  <text x="224" y="324" font-family="Verdana, Geneva, sans-serif" font-size="17" font-style="italic" fill="#5b6b82">Describe your imagination...</text>
+
+  <!-- generate button -->
+  <ellipse cx="325" cy="462" rx="110" ry="8" fill="#000000" opacity="0.35"/>
+  <rect x="200" y="400" width="250" height="58" rx="29" fill="url(#genGrad)"/>
+  <ellipse cx="325" cy="418" rx="95" ry="13" fill="#ffffff" opacity="0.28"/>
+  <text x="325" y="437" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="20" font-weight="bold" letter-spacing="2" fill="#060b14">GENERATE</text>
+
+  <!-- result frame -->
+  <g clip-path="url(#resClip)">
+    <rect x="200" y="490" width="880" height="200" fill="#0a1322"/>
+    <polygon points="0,0 140,0 70,210 -70,210" fill="#ffffff" opacity="0.05">
+      <animateTransform attributeName="transform" type="translate" from="-160 490" to="1140 490" dur="4s" repeatCount="indefinite"/>
+    </polygon>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 640 590" to="360 640 590" dur="3s" repeatCount="indefinite"/>
+      <circle cx="640" cy="550" r="6" fill="#45c8f0"/>
+      <circle cx="680" cy="590" r="6" fill="#6a8cff"/>
+      <circle cx="600" cy="590" r="6" fill="#e8d5a8"/>
+    </g>
+    <circle cx="640" cy="590" r="10" fill="#edf3fb">
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <rect x="200" y="490" width="880" height="200" rx="18" fill="none" stroke="#1c2f4d" stroke-width="1.5"/>
+
+  <!-- decorative bubbles -->
+  <circle cx="90" cy="780" r="6" fill="#45c8f0" opacity="0">
+    <animate attributeName="cy" from="780" to="40" dur="10s" begin="-3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.15;0.8;1" dur="10s" begin="-3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1190" cy="780" r="8" fill="#6a8cff" opacity="0">
+    <animate attributeName="cy" from="780" to="40" dur="12s" begin="-7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.45;0.45;0" keyTimes="0;0.15;0.8;1" dur="12s" begin="-7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="70" cy="780" r="4" fill="#edf3fb" opacity="0">
+    <animate attributeName="cy" from="780" to="40" dur="8s" begin="-1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.4;0.4;0" keyTimes="0;0.15;0.8;1" dur="8s" begin="-1s" repeatCount="indefinite"/>
+  </circle>
+</svg>

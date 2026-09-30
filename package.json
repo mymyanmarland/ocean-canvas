@@ -1,0 +1,1 @@
+{"dependencies":{"express":"^4.21.2"},"description":"AI image generator powered by the zly168 relay (Grok Imagine models)","main":"server.js","name":"relay-image-studio","private":true,"scripts":{"start":"node server.js"},"version":"1.0.0"}
